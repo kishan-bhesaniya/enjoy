@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="gu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>120 નાની ખુશીઓ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      /* page background */
+      --soft: #f5f5f3;
+      /* soft panels */
+      --ink: #111111;
+      /* main text */
+      --muted: #6b6b6b;
+      /* secondary text */
+      --line: #e6e6e3;
+      /* borders */
+      --accent: #ff5a1f;
+      /* brand accent – change to your exact colour */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Hind Vadodara", "Poppins", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 28px
+    }
+
+    .light {
+      font-weight: 300
+    }
+
+    .acc {
+      color: var(--accent)
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px
+    }
+
+    .mark {
+      font-size: 22px;
+      font-weight: 700
+    }
+
+    .mark span {
+      color: var(--accent)
+    }
+
+    .nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      font-weight: 500
+    }
+
+    .nav ul a {
+      position: relative
+    }
+
+    .nav ul a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width .25s
+    }
+
+    .nav ul a:hover::after {
+      width: 100%
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: background .2s
+    }
+
+    .pill:hover {
+      background: var(--accent)
+    }
+
+    /* Hero */
+    .hero {
+      padding: 110px 0 70px
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: .5px;
+      margin-bottom: 22px
+    }
+
+    .hero h1 {
+      font-size: clamp(52px, 9vw, 118px);
+      line-height: 1.02;
+      letter-spacing: -1px
+    }
+
+    .hero h1 .light {
+      display: block
+    }
+
+    .hero-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-top: 36px;
+      flex-wrap: wrap
+    }
+
+    .hero p {
+      max-width: 520px;
+      font-size: 20px;
+      color: var(--muted)
+    }
+
+    /* Stats strip */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-top: 70px
+    }
+
+    .stat {
+      padding: 30px 0 30px 28px;
+      border-left: 1px solid var(--line)
+    }
+
+    .stat:first-child {
+      border-left: none;
+      padding-left: 0
+    }
+
+    .stat b {
+      display: block;
+      font-family: "Poppins", sans-serif;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1
+    }
+
+    .stat span {
+      color: var(--muted)
+    }
+
+    /* Marquee */
+    .marquee {
+      background: var(--ink);
+      color: #fff;
+      overflow: hidden;
+      padding: 20px 0;
+      margin: 80px 0 0
+    }
+
+    .track {
+      display: flex;
+      gap: 48px;
+      width: max-content;
+      animation: scroll 40s linear infinite;
+      font-size: 24px;
+      font-weight: 500;
+      white-space: nowrap
+    }
+
+    .track span::after {
+      content: "✦";
+      color: var(--accent);
+      margin-left: 48px
+    }
+
+    @keyframes scroll {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* Section headings */
+    .block {
+      padding: 100px 0 40px
+    }
+
+    .kicker {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 10px
+    }
+
+    .title {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.1;
+      letter-spacing: -.5px
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 560px;
+      margin-top: 14px
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 50px
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 290px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--bg);
+      transition: transform .25s, box-shadow .25s, border-color .25s
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--ink);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, .08)
+    }
+
+    .card .num {
+      font-family: "Poppins", sans-serif;
+      font-size: 15px;
+      color: var(--muted)
+    }
+
+    .card .num b {
+      color: var(--ink);
+      font-size: 30px
+    }
+
+    .card .tag {
+      margin-top: 26px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent)
+    }
+
+    .card h3 {
+      font-size: 26px;
+      line-height: 1.25;
+      margin: 6px 0 8px
+    }
+
+    .card p {
+      color: var(--muted)
+    }
+
+    .card .go {
+      margin-top: auto;
+      padding-top: 22px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .card .go i {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--soft);
+      font-style: normal;
+      transition: background .2s, color .2s
+    }
+
+    .card:hover .go i {
+      background: var(--accent);
+      color: #fff
+    }
+
+    /* Moment sections */
+    .moment {
+      scroll-margin-top: 90px;
+      padding: 90px 0 20px
+    }
+
+    .moment-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 26px
+    }
+
+    .moment-head .count {
+      font-family: "Poppins", sans-serif;
+      color: var(--muted);
+      font-size: 15px
+    }
+
+    .moment-head .count b {
+      color: var(--ink);
+      font-size: 48px;
+      line-height: 1;
+      display: block
+    }
+
+    .moment:target .title b {
+      color: var(--accent);
+      transition: color .4s
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 48px;
+      margin-top: 10px
+    }
+
+    .list li {
+      counter-increment: m;
+      display: flex;
+      gap: 20px;
+      align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 18px
+    }
+
+    .list li::before {
+      content: counter(m, decimal-leading-zero);
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 14px;
+      min-width: 34px
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 22px;
+      font-weight: 600;
+      color: var(--muted)
+    }
+
+    .back:hover {
+      color: var(--accent)
+    }
+
+    /* CTA */
+    .cta {
+      margin: 110px 0 0;
+      background: var(--soft);
+      border-radius: 28px;
+      padding: 80px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap
+    }
+
+    .cta .title {
+      max-width: 640px
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 0 40px;
+      margin-top: 80px;
+      border-top: 1px solid var(--line)
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap
+    }
+
+    .foot ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      color: var(--muted)
+    }
+
+    .foot ul a:hover {
+      color: var(--ink)
+    }
+
+    .copy {
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    @media (max-width:900px) {
+      .nav ul {
+        display: none
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .list {
+        grid-template-columns: 1fr
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .stat:nth-child(3) {
+        border-left: none;
+        padding-left: 0
+      }
+
+      .cta {
+        padding: 50px 30px
+      }
+    }
+
+    @media (max-width:560px) {
+      .cards {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="mark">નાની <span>ખુશીઓ</span></a>
+      <ul>
+        <li><a href="#map">વિભાગો</a></li>
+        <li><a href="#food">ખાણી-પીણી</a></li>
+        <li><a href="#nature">કુદરત</a></li>
+        <li><a href="#travel">ફરવું</a></li>
+      </ul>
+      <a class="pill" href="#map">પળો જુઓ →</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- Hero -->
+    <section class="hero">
+      <span class="eyebrow">રોજની પળોનો નાનકડો સંગ્રહ</span>
+      <h1><span class="light">નાની પળો,</span><b>મોટી <span class="acc">ખુશીઓ.</span></b></h1>
+      <div class="hero-row">
+        <p>ચાની પહેલી ચૂસકીથી લઈને પહેલા વરસાદની સુગંધ સુધી, આ 120 પળો સામાન્ય દિવસને ખાસ બનાવી દે છે.</p>
+        <a class="pill" href="#map">શરૂ કરીએ →</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>120</b><span>નાની પળો</span></div>
+        <div class="stat"><b>06</b><span>વિભાગ</span></div>
+        <div class="stat"><b>365</b><span>દિવસ માણવા</span></div>
+        <div class="stat"><b>∞</b><span>અગણિત સ્મિત</span></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>કુલ્હડની ચા</span><span>પહેલો વરસાદ</span><span>ગરબાની રાત</span><span>ઉત્તરાયણનો પતંગ</span><span>માથેરાનની
+        સફર</span><span>તારા ભરેલું આકાશ</span><span>મમ્મીની રોટલી</span><span>દાદાના કિસ્સા</span>
+      <span>કુલ્હડની ચા</span><span>પહેલો વરસાદ</span><span>ગરબાની રાત</span><span>ઉત્તરાયણનો પતંગ</span><span>માથેરાનની
+        સફર</span><span>તારા ભરેલું આકાશ</span><span>મમ્મીની રોટલી</span><span>દાદાના કિસ્સા</span>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <!-- Section map -->
+    <section class="block" id="map">
+      <div class="kicker">છ વિભાગ</div>
+      <h2 class="title"><span class="light">પસંદ કરો તમારી</span> <b>ખુશી</b></h2>
+
+      <div class="cards">
+        <a class="card" href="#food"><span class="num"><b>01</b> / 06</span><span class="tag">25 પળો · 1–25</span>
+          <h3>ખાણી-પીણી</h3>
+          <p>ચા, ચટાકા અને ઘરનો સ્વાદ</p><span class="go">પળો જુઓ <i>→</i></span>
+        </a>
+        <a class="card" href="#nature"><span class="num"><b>02</b> / 06</span><span class="tag">25 પળો · 26–50</span>
+          <h3>કુદરત અને મોસમ</h3>
+          <p>વરસાદ, તડકો અને તારા</p><span class="go">પળો જુઓ <i>→</i></span>
+        </a>
+        <a class="card" href="#travel"><span class="num"><b>03</b> / 06</span><span class="tag">21 પળો · 51–71</span>
+          <h3>ફરવું અને Explore</h3>
+          <p>નવા રસ્તા, નવી જગ્યા</p><span class="go">પળો જુઓ <i>→</i></span>
+        </a>
+        <a class="card" href="#music"><span class="num"><b>04</b> / 06</span><span class="tag">21 પળો · 72–92</span>
+          <h3>સંગીત, રમત અને તહેવાર</h3>
+          <p>ગરબા, ગીતો અને મેળા</p><span class="go">પળો જુઓ <i>→</i></span>
+        </a>
+        <a class="card" href="#people"><span class="num"><b>05</b> / 06</span><span class="tag">14 પળો · 93–106</span>
+          <h3>સંબંધો અને લોકો</h3>
+          <p>પોતાના લોકો સાથેની પળો</p><span class="go">પળો જુઓ <i>→</i></span>
+        </a>
+        <a class="card" href="#self"><span class="num"><b>06</b> / 06</span><span class="tag">14 પળો · 107–120</span>
+          <h3>મન, શ્રદ્ધા અને મારી જાત</h3>
+          <p>શાંતિ, ભક્તિ અને પોતાની સંભાળ</p><span class="go">પળો જુઓ <i>→</i></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 01 Food -->
+    <section class="moment" id="food">
+      <div class="moment-head">
+        <div>
+          <div class="kicker">01 / 06</div>
+          <h2 class="title"><span class="light">ચા, ચટાકા અને</span> <b>ઘરનો સ્વાદ</b></h2>
+        </div>
+        <div class="count"><b>25</b>પળો</div>
+      </div>
+      <ol class="list" style="counter-reset:m 0">
+        <li>મિત્રો સાથે ચા પીવાની</li>
+        <li>કુલ્હડમાં ચા પીવાની</li>
+        <li>Sunset જોતાં-જોતાં ચા પીવાની</li>
+        <li>Taj નીચે Tea Post પર બેસવાની</li>
+        <li>નવું café explore કરવાની</li>
+        <li>Cold coffee પીવાની</li>
+        <li>Delight ની પાઉંભાજી ખાવાની</li>
+        <li>નવું-નવું street food try કરવાની</li>
+        <li>માણેક ચોકમાં મોડી રાત્રે ખાવાની</li>
+        <li>હાઇવેના ઢાબા પર ખાટલે બેસી જમવાની</li>
+        <li>સવારે ઊઠીને ગાંઠિયા ખાવાની</li>
+        <li>ભાજીનું શાક ખાવાની</li>
+        <li>જમ્યા પછી સોપારી ખાવાની</li>
+        <li>મમ્મીના હાથની ગરમ-ગરમ રોટલી ખાવાની</li>
+        <li>લાંબા સમય પછી ઘરનું જમવાની</li>
+        <li>Weekend માં નિરાંતે મનભાવતું ભોજન જમવાની</li>
+        <li>વરસાદમાં ગરમા-ગરમ ભજિયાં ખાવાની</li>
+        <li>ચોમાસામાં શેકેલા મકાઈ ડોડા ખાવાની</li>
+        <li>કેરીની સીઝનમાં રસ-પૂરી ખાવાની</li>
+        <li>ઉત્તરાયણમાં ઊંધિયું-જલેબી ખાવાની</li>
+        <li>ગરમીમાં બરફના ગોલા ખાવાની</li>
+        <li>રાત્રે ice-cream ખાવાની</li>
+        <li>શિયાળામાં ગરમ મસાલા દૂધ પીવાની</li>
+        <li>માટલાનું ઠંડું પાણી પીવાની</li>
+        <li>વરિયાળીનું શરબત કે નાગરવેલનું પાન</li>
+      </ol>
+      <a class="back" href="#map">↑ બધા વિભાગ</a>
+    </section>
+
+    <!-- 02 Nature -->
+    <section class="moment" id="nature">
+      <div class="moment-head">
+        <div>
+          <div class="kicker">02 / 06</div>
+          <h2 class="title"><span class="light">વરસાદ, તડકો અને</span> <b>તારા</b></h2>
+        </div>
+        <div class="count"><b>25</b>પળો</div>
+      </div>
+      <ol class="list" style="counter-reset:m 25">
+        <li>પહેલા વરસાદની માટીની સુગંધ માણવાની</li>
+        <li>વરસાદમાં નહાવાની</li>
+        <li>વરસાદમાં બારી પાસે બેસી બહાર જોવાની</li>
+        <li>આકાશમાં મેઘધનુષ જોવાની</li>
+        <li>ધુમ્મસવાળી સવારે ચાલવા જવાની</li>
+        <li>સવારે ઘાસના ઝાકળ પર ઉઘાડા પગે ચાલવાની</li>
+        <li>વહેલી સવારની ઠંડી હવા માણવાની</li>
+        <li>સવારે પક્ષીઓનો કલરવ સાંભળવાની</li>
+        <li>ધાબે જઈ sunrise જોવાની</li>
+        <li>સાંજે sunset જોવાની</li>
+        <li>પર્વતોની વચ્ચે sunrise અને sunset જોવાની</li>
+        <li>અગાશી પરથી રાત્રે તારા જોવાની</li>
+        <li>ચંદ્રને નિહાળવાની</li>
+        <li>પૂનમની રાતે ચાંદનીમાં ચાલવાની</li>
+        <li>દરિયા કિનારે બેસવાની</li>
+        <li>તળાવ કિનારે બેસવાની</li>
+        <li>તળાવમાં પથ્થર ફેંકી બનતાં કુંડાળાં જોવાની</li>
+        <li>નદીમાં નહાવાની</li>
+        <li>ઝરણાના ઠંડા પાણીમાં પગ બોળવાની</li>
+        <li>વૃક્ષ નીચે બેસી ઠંડો પવન ખાવાની</li>
+        <li>શિયાળામાં સવારના કૂણા તડકામાં બેસવાની</li>
+        <li>શિયાળામાં તાપણાની આસપાસ ગોળ બેસવાની</li>
+        <li>ગિરનાર ચડીને ઉપરથી નજારો જોવાની</li>
+        <li>રંગબેરંગી ફૂલો જોવાની</li>
+        <li>Nature ના સુંદર ફોટા પાડવાની</li>
+      </ol>
+      <a class="back" href="#map">↑ બધા વિભાગ</a>
+    </section>
+
+    <!-- 03 Travel -->
+    <section class="moment" id="travel">
+      <div class="moment-head">
+        <div>
+          <div class="kicker">03 / 06</div>
+          <h2 class="title"><span class="light">નવા રસ્તા,</span> <b>નવી જગ્યા</b></h2>
+        </div>
+        <div class="count"><b>21</b>પળો</div>
+      </div>
+      <ol class="list" style="counter-reset:m 50">
+        <li>એકલા ફરવા નીકળવાની</li>
+        <li>નવી જગ્યા explore કરવાની</li>
+        <li>કોઈ hidden place શોધી કાઢવાની</li>
+        <li>મિત્રો સાથે unplanned road trip પર જવાની</li>
+        <li>ગાડી ચલાવવાની</li>
+        <li>ખાલી રોડ પર મોડી રાત્રે bike ride કરવાની</li>
+        <li>ઘાટના વળાંકવાળા રસ્તા પર drive કરવાની</li>
+        <li>Countryside માં ride કરવાની</li>
+        <li>ટ્રેનની window seat પરથી બહારનાં દ્રશ્યો જોવાની</li>
+        <li>પ્લેનનું take-off અને landing જોવાની</li>
+        <li>એરપોર્ટ પર કોઈને લેવા કે મૂકવા જવાની</li>
+        <li>ઊંચી building પરથી આખું શહેર જોવાની</li>
+        <li>ગામડે જઈ ખેતરમાં ફરવાની</li>
+        <li>માથેરાન જવાની</li>
+        <li>સાપુતારામાં ચોમાસું માણવાની</li>
+        <li>કચ્છના સફેદ રણમાં રણોત્સવ જોવાની</li>
+        <li>દીવના દરિયા કિનારે ફરવાની</li>
+        <li>Trekking કરી પહાડની ટોચે પહોંચવાની</li>
+        <li>Jungle safari કરવાની</li>
+        <li>ગીરમાં સિંહ જોવાની</li>
+        <li>રસ્તા પર મોંઘી ગાડીઓ જોવાની</li>
+      </ol>
+      <a class="back" href="#map">↑ બધા વિભાગ</a>
+    </section>
+
+    <!-- 04 Music -->
+    <section class="moment" id="music">
+      <div class="moment-head">
+        <div>
+          <div class="kicker">04 / 06</div>
+          <h2 class="title"><span class="light">ગરબા, ગીતો અને</span> <b>મેળા</b></h2>
+        </div>
+        <div class="count"><b>21</b>પળો</div>
+      </div>
+      <ol class="list" style="counter-reset:m 71">
+        <li>ગરબા રમવાની</li>
+        <li>ઉત્તરાયણમાં ધાબે પતંગ ઉડાવવાની</li>
+        <li>દિવાળીમાં ફટાકડા ફોડવાની</li>
+        <li>મેળામાં ચકડોળમાં બેસવાની</li>
+        <li>આદિત્ય ગઢવીના concert માં જવાની</li>
+        <li>ડાયરામાં લોકસાહિત્ય સાંભળવાની</li>
+        <li>ગુજરાતી લોકગીતો સાંભળવાની</li>
+        <li>જૂનાં ગીતોની playlist સાંભળવાની</li>
+        <li>Headphone લગાવી મનગમતાં ગીતો સાંભળવાની</li>
+        <li>Long drive માં મોટેથી ગીતો ગાવાની</li>
+        <li>Riverfront પર music jamming માં બેસવાની</li>
+        <li>Street music jamming માં જોડાવાની</li>
+        <li>PG માં speaker પર ગીતો વગાડવાની</li>
+        <li>સારા event માં જવાની</li>
+        <li>મિત્રો સાથે movie જોવા જવાની</li>
+        <li>ક્રિકેટ રમવાની</li>
+        <li>Stadium માં જઈ live ક્રિકેટ જોવાની</li>
+        <li>ઘરે બેસી ક્રિકેટ મેચ જોવાની</li>
+        <li>Lunch break માં game રમવાની</li>
+        <li>મિત્રો સાથે કેરમ કે લુડો રમવાની</li>
+        <li>Pool રમવાની</li>
+      </ol>
+      <a class="back" href="#map">↑ બધા વિભાગ</a>
+    </section>
+
+    <!-- 05 People -->
+    <section class="moment" id="people">
+      <div class="moment-head">
+        <div>
+          <div class="kicker">05 / 06</div>
+          <h2 class="title"><span class="light">પોતાના લોકો સાથેની</span> <b>પળો</b></h2>
+        </div>
+        <div class="count"><b>14</b>પળો</div>
+      </div>
+      <ol class="list" style="counter-reset:m 92">
+        <li>હસવાની અને બીજાને હસાવવાની</li>
+        <li>કોઈના ખરાબ સમયમાં એના ચહેરા પર smile લાવવાની</li>
+        <li>પોતાના જેવી energy વાળા લોકો સાથે સમય વિતાવવાની</li>
+        <li>દોસ્તો સાથે મહેફિલ જમાવવાની</li>
+        <li>જૂના મિત્રોને મળી સ્કૂલની વાતો યાદ કરવાની</li>
+        <li>કોઈ જૂના પરિચિતને અચાનક મળવાની</li>
+        <li>મમ્મી-પપ્પા સાથે નિરાંતે વાતો કરવાની</li>
+        <li>આખા પરિવાર સાથે ભેગા બેસી જમવાની</li>
+        <li>દાદા પાસેથી જૂના કિસ્સા સાંભળવાની</li>
+        <li>નાનાં બાળકો સાથે રમવાની</li>
+        <li>મિત્રોને surprise આપવાની</li>
+        <li>કોઈના સુંદર ફોટા પાડી આપવાની</li>
+        <li>કોઈ અચાનક gift આપે ત્યારે</li>
+        <li>જરૂર હોય ત્યારે કોઈ મદદ કરે ત્યારે</li>
+      </ol>
+      <a class="back" href="#map">↑ બધા વિભાગ</a>
+    </section>
+
+    <!-- 06 Self -->
+    <section class="moment" id="self">
+      <div class="moment-head">
+        <div>
+          <div class="kicker">06 / 06</div>
+          <h2 class="title"><span class="light">શાંતિ, ભક્તિ અને</span> <b>મારી જાત</b></h2>
+        </div>
+        <div class="count"><b>14</b>પળો</div>
+      </div>
+      <ol class="list" style="counter-reset:m 106">
+        <li>સવારે હનુમાન ચાલીસા સાંભળવાની</li>
+        <li>સવારે fresh થઈ ISKCON મંદિર જવાની</li>
+        <li>સાંજે મંદિરની આરતીમાં જવાની</li>
+        <li>પાવાગઢ ચડી મહાકાળી માના દર્શન કરવાની</li>
+        <li>સારી અગરબત્તીની સુગંધ માણવાની</li>
+        <li>રવિવારે નિરાંતે મોડે સુધી ઊંઘવાની</li>
+        <li>Workout પછીની તાજગી અનુભવવાની</li>
+        <li>Diary માં મનની વાતો લખવાની</li>
+        <li>નવી language ના basic words શીખવાની</li>
+        <li>રોજ થોડું-થોડું પોતાને improve કરવાની</li>
+        <li>સ્વચ્છ અને વ્યવસ્થિત workplace પર કામ કરવાની</li>
+        <li>Nike ના shoes પહેરવાની</li>
+        <li>Oversize T-shirt પહેરવાની</li>
+        <li>આંગળીમાં મનગમતી વીંટી પહેરવાની</li>
+      </ol>
+      <a class="back" href="#map">↑ બધા વિભાગ</a>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2 class="title"><span class="light">તમારી</span> <b>નાની ખુશી</b> <span class="light">કઈ છે?</span></h2>
+      <a class="pill" href="#top">ફરી શરૂઆતથી ↑</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <a href="#top" class="mark">નાની <span>ખુશીઓ</span></a>
+        <ul>
+          <li><a href="#food">ખાણી-પીણી</a></li>
+          <li><a href="#nature">કુદરત</a></li>
+          <li><a href="#travel">ફરવું</a></li>
+          <li><a href="#music">સંગીત</a></li>
+          <li><a href="#people">સંબંધો</a></li>
+          <li><a href="#self">મન</a></li>
+        </ul>
+      </div>
+      <p class="copy">© 2026 · 120 નાની ખુશીઓ</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
